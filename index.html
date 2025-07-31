@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brybod Music</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Brybod Music</h1>
+        <p>Music is life</p>
+    </header>
+    <main>
+        <div class="song-grid">
+            <section class="myball" style="display: flex; flex-direction: column; align-items: center;">
+                <h2>MyBall</h2>
+                <p>Watch the video here, or listen to the audio here</p>
+                <video width="400" height="auto" src="videos/MyBallVideo.mp4" controls fullscreen></video>
+                <small>Length: 0:33</small>
+                <button class="myball download">Download mp3</button>
+                <small>I do not know owner of beat, if you are the owner, please contact me At YT: <a href="https://www.youtube.com/@Brybod123">Brybod123</a></small>
+            </section>
+            <section class="myball2" style="display: flex; flex-direction: column; align-items: center;">
+                <h2>MyBall2</h2>
+                <p>Watch the video here, or listen to the audio here</p>
+                <video width="400" height="auto" src="videos/MyBall2Video.mp4" controls fullscreen></video>
+                <small>Length: 2:40</small>
+                <button class="myball2 download">Download mp3</button>
+                <small>Beat By TremoxBeatz</small>
+            </section>
+            <section class="myball3" style="display: flex; flex-direction: column; align-items: center;">
+                <h2>MyBall3</h2>
+                <p>Watch the video here, or listen to the audio here</p>
+                <video width="400" height="auto" src="videos/MyBall3Video.mp4" controls fullscreen></video>
+                <small>Length: 1:46</small>
+                <button class="myball3 download">Download mp3</button>
+                <small>Beat By NEST-BEATZOfficial</small>
+            </section>
+            <section class="silvercoin" style="display: flex; flex-direction: column; align-items: center;">
+                <h2>Silver Coin</h2>
+                <p>Watch the video here, or listen to the audio here</p>
+                <video width="400" height="auto" src="videos/SilverCoinVideo.mp4" controls fullscreen></video>
+                <small>Length: 2:29</small>
+                <button class="silvercoin download">Download mp3</button>
+                <small>Beat By beatwaves</small>
+                <small>Cover Art By mattyh</small>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>Music is life</p>
+        <p>You can use this music for free</p>
+    </footer>
+    <script>
+        const downloadButtons = document.querySelectorAll('.download');
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (button.classList.contains('myball')) {
+                    const link = document.createElement('a');
+                    link.href = 'audios/MyBall.mp3';
+                    link.download = 'MyBall.mp3';
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } else if (button.classList.contains('myball2')) {
+                    const link = document.createElement('a');
+                    link.href = 'audios/MyBall2.mp3';
+                    link.download = 'MyBall2.mp3';
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } else if (button.classList.contains('myball3')) {
+                    const link = document.createElement('a');
+                    link.href = 'audios/MyBall3.mp3';
+                    link.download = 'MyBall3.mp3';
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } else if (button.classList.contains('silvercoin')) {
+                    const link = document.createElement('a');
+                    link.href = 'audios/SilverCoin.mp3';
+                    link.download = 'SilverCoin.mp3';
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

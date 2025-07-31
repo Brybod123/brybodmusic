@@ -1,0 +1,240 @@
+/*
+    Elegant Purple Neon Theme
+    This stylesheet uses a dark, ethereal background with a sophisticated purple and pink neon color palette.
+    The design focuses on subtle glows, refined typography, and smooth transitions for a modern, elegant feel.
+*/
+
+/* --- Color and Theming Variables --- */
+:root {
+    --primary-color: #7a00e6;       /* Deep purple */
+    --secondary-color: #9c00ff;     /* Vivid purple */
+    --tertiary-color: #d200ff;      /* Bright magenta-purple */
+    --quaternary-color: #ec00ff;    /* Hot pink */
+    --background-dark: #0a011a;     /* Very dark blue-purple for the main background */
+    --text-light: #e0e0e0;          /* Soft white for primary text */
+    --text-faded: #a0a0a0;          /* Lighter gray for secondary text */
+    --border-color: rgba(255, 255, 255, 0.1); /* Subtle, transparent border */
+
+    /* Gradients */
+    --gradient-bg: linear-gradient(135deg, var(--background-dark), #1d0033);
+    --gradient-ui: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+
+    /* Shadows & Glows */
+    --neon-glow-text: 0 0 5px var(--tertiary-color), 0 0 10px var(--quaternary-color);
+    --neon-glow-ui: 0 0 8px rgba(220, 0, 255, 0.6), 0 0 15px rgba(220, 0, 255, 0.4);
+    --box-shadow-elevated: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Base Styles & Layout --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* A more elegant sans-serif font */
+    background: var(--gradient-bg);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* A more flexible layout, centered content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    flex: 1;
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+    font-family: 'Electrolize', sans-serif; /* A futuristic, clean font for headings */
+    text-shadow: var(--neon-glow-text);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.4rem; }
+
+p {
+    line-height: 1.6;
+    color: var(--text-faded);
+}
+
+a {
+    color: var(--tertiary-color);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: var(--quaternary-color);
+    text-shadow: 0 0 5px var(--quaternary-color);
+}
+
+/* --- Components --- */
+
+/* Header */
+header {
+    background: rgba(122, 0, 230, 0.1);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    box-shadow: var(--box-shadow-elevated);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-family: 'Electrolize', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: var(--neon-glow-text);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    position: relative;
+    font-weight: 500;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--tertiary-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.4s ease;
+}
+
+header nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Main content cards/sections */
+.card {
+    background: rgba(122, 0, 230, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow-elevated);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--neon-glow-ui), var(--box-shadow-elevated);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    background: var(--gradient-ui);
+    color: var(--text-light);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--neon-glow-ui);
+}
+
+/* Footer */
+footer {
+    background: rgba(10, 1, 26, 0.5);
+    border-top: 1px solid var(--border-color);
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-faded);
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+/* Specific styles for song grids */
+.song-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.song-card {
+    background: rgba(122, 0, 230, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.song-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--neon-glow-ui), 0 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+.song-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.song-card p {
+    margin-top: 0;
+    font-size: 0.9rem;
+}
+
+.download {
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-light);
+    text-shadow: 0 0 3px var(--tertiary-color), 0 0 5px var(--quaternary-color);
+    background: linear-gradient(45deg, var(--tertiary-color), var(--quaternary-color));
+    border: 2px solid var(--tertiary-color);
+    border-radius: 2rem;
+    padding: 0.8rem 1.8rem;
+    box-shadow: var(--neon-glow-ui), 0 10px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.download:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--neon-glow-ui), 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.download:active {
+    transform: translateY(4px);
+    box-shadow: var(--neon-glow-ui), 0 10px 20px rgba(0, 0, 0, 0.6);
+}
