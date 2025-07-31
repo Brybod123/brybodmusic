@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Mix</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>All Mix</h1>
+        <p>Music is life</p>
+    </header>
+    <main>
+        <div class="song-grid">
+            <section class="myball" style="display: flex; flex-direction: column; align-items: center;">
+                <h2>MyBall</h2>
+                <p>Watch the video here, or listen to the audio here</p>
+                <video width="400" height="auto" src="videos/MyBallVideo.mp4" controls fullscreen></video>
+                <small>Length: 0:33</small>
+            </section>
+            <section class="myball2" style="display: flex; flex-direction: column; align-items: center;">
+                <h2>MyBall2</h2>
+                <p>Watch the video here, or listen to the audio here</p>
+                <video width="400" height="auto" src="videos/MyBall2Video.mp4" controls fullscreen></video>
+                <small>Length: 2:40</small>
+            </section>
+            <section class="myball3" style="display: flex; flex-direction: column; align-items: center;">
+                <h2>MyBall3</h2>
+                <p>Watch the video here, or listen to the audio here</p>
+                <video width="400" height="auto" src="videos/MyBall3Video.mp4" controls fullscreen></video>
+                <small>Length: 1:46</small>
+            </section>
+            <section class="silvercoin" style="display: flex; flex-direction: column; align-items: center;">
+                <h2>Silver Coin</h2>
+                <p>Watch the video here, or listen to the audio here</p>
+                <video width="400" height="auto" src="videos/SilverCoinVideo.mp4" controls fullscreen></video>
+                <small>Length: 2:29</small>
+            </section>
+        </div>
+        <button id="play-all">Play All</button>
+    </main>
+    <footer>
+        <p>Music is life</p>
+        <p>You can use this music for free</p>
+    </footer>
+    <script>
+        const playAllButton = document.getElementById('play-all');
+        const videos = document.querySelectorAll('video');
+
+        playAllButton.addEventListener('click', () => {
+            videos[0].play();
+            videos[0].addEventListener('ended', () => {
+                videos[1].play();
+                videos[1].addEventListener('ended', () => {
+                    videos[2].play();
+                    videos[2].addEventListener('ended', () => {
+                        videos[3].play();
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
